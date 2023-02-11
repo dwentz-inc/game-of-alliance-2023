@@ -45,13 +45,12 @@ git clone https://github.com/terra-money/alliance
 cd alliance
 git checkout v0.0.1-goa
 make build-alliance ACC_PREFIX=ordos
-go build -o allianced cmd/allianced/main.go
 mv build/ordosd $HOME/go/bin/
 
 # config & init
-allianced config chain-id $TERA_CHAIN_ID
-allianced config keyring-backend test
-allianced init $NODENAME --chain-id $TERA_CHAIN_ID
+ordosd config chain-id $TERA_CHAIN_ID
+ordosd config keyring-backend test
+ordosd init $NODENAME --chain-id $TERA_CHAIN_ID
 
 # download genesis
 wget -O genesis.json https://raw.githubusercontent.com/terra-money/alliance/v0.0.1-goa/genesis/ordos-1/genesis.json
@@ -82,7 +81,7 @@ sed -i -e "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"0.0025uord\"/" $HOM
 sed -i -e "s/prometheus = false/prometheus = true/" $HOME/.ordos/config/config.toml
 
 # reset
-allianced tendermint unsafe-reset-all --home $HOME/.ordos
+ordosd tendermint unsafe-reset-all --home $HOME/.ordos
 
 echo -e "\e[1m\e[32m4. Starting service... \e[0m" && sleep 1
 # create service
