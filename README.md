@@ -5,4 +5,4 @@ wget -O ordo.sh https://raw.githubusercontent.com/dwentz-inc/game-of-alliance-20
 ```
 source $HOME/.bash_profile
 ```
-```
+Ada 4 chain [lihat disini](https://github.com/terra-money/alliance)
